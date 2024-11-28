@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Your Profile</h2>
+        <p id="profileUserID"></p>
+        <p id="profileEmail"></p>
+        <button type="button" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const userID = localStorage.getItem('userID');
+            const email = localStorage.getItem('email');
+            document.getElementById('profileUserID').textContent = `User ID: ${userID}`;
+            document.getElementById('profileEmail').textContent = `Email: ${email}`;
+        }
+
+        function logout() {
+            alert('Logged out successfully!');
+            window.close();
+            window.opener.openPopup('login.html');
+        }
+    </script>
+</body>
+</html>
